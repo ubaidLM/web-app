@@ -13,7 +13,7 @@ const Registerpage = () => {
               const user = { username, password };
               await addUser(user);
               console.log({ username, password });
-              alert('you are added succesfully')
+              alert('you are added')
               // toast.success('Register Successfully');
             } catch (error) {
               console.error('Error during registration:', error);
