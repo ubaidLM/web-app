@@ -1,7 +1,20 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 const URL='http://localhost:8000'
+import { auth } from '../config/firebaseConfig.js';
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+
 export const addUser = async (user)=>{
-    const res=await axios.post(`${URL}/user`,user);
-    console.log(res)
+    createUserWithEmailAndPassword(auth, user.username, user.password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user)
+  })
+  .catch((error) => {
+    console.log(error)
+    // ..
+  });
+
+    // const res=await axios.post(`${URL}/user`,user);
+    // console.log(res)
 }
